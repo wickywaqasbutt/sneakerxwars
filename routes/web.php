@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.index');
 });
+Route::get('/profile', 'Dashboard\DashboardController@profile')->name('profile');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::group(['middleware' => ['auth'=>'admin']], function () {
 
